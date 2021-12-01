@@ -1,8 +1,8 @@
 <template> </template>
 <script>
 import * as THREE from "three";
-import { OrbitControls } from "../../../../examples/jsm/controls/OrbitControls";
-import { GLTFLoader } from "../../../../examples/jsm/loaders/GLTFLoader";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 export default {
   name: "ProductView",
   data() {
@@ -29,8 +29,6 @@ export default {
 
       this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      this.renderer.toneMappingExposure = 1;
       this.renderer.outputEncoding = THREE.sRGBEncoding;
       const container = document.getElementById(this.containerId);
       this.renderer.setSize(container.offsetWidth, container.offsetHeight);
@@ -57,8 +55,6 @@ export default {
       // END: Adding controls
 
       // START: Adding light
-      const hlight = new THREE.AmbientLight(0x0f0f0f, 30);
-      this.scene.add(hlight);
 
       const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
       directionalLight.position.set(0, 1, 0);
@@ -98,26 +94,6 @@ export default {
   },
   mounted() {
     this.init();
-    this.renderScene();
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>

@@ -9,7 +9,6 @@
         v-bind:key="'product-item-' + product.title.replace(' ', '-')"
       >
         <product-thumbnail
-          v-bind:style="{ 'background-color': getBackgroundColor(index) }"
           v-bind:key="product.title"
           :product="product"
           :thumbnail-id="'thumbnail-' + index"
@@ -32,15 +31,6 @@ export default {
   },
   data() {
     return {
-      colorList: [
-        '#8cc1f6',
-        '#fbd76c',
-        '#90bc8b',
-        '#b48bbc',
-        '#363f80',
-        '#e1932a',
-        '#d04c4c'
-      ],
       productList: [
         {
           title: "helmet example",
@@ -71,11 +61,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    getBackgroundColor(index) {
-      return `${this.colorList[index%this.colorList.length]}30`;
-    }
   }
 };
 </script>
